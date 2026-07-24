@@ -1,0 +1,116 @@
+{
+  "pipeline": "type_classifier_v1",
+  "dataset": "ticket_dataset-tickets-multi-lang-5-2-50-version.csv",
+  "target": "type",
+  "features": [
+    "subject",
+    "body"
+  ],
+  "combined_feature": "text",
+  "total_rows_raw": 28587,
+  "total_rows_used": 28587,
+  "duplicates_removed": 0,
+  "training_samples": 22869,
+  "test_samples": 5718,
+  "split_method": "stratified train_test_split(test_size=0.2, random_state=42)",
+  "tfidf_max_features": 15000,
+  "tfidf_ngram_range": [
+    1,
+    2
+  ],
+  "num_classes": 4,
+  "class_labels": [
+    "Change",
+    "Incident",
+    "Problem",
+    "Request"
+  ],
+  "class_distribution": {
+    "Incident": 11466,
+    "Request": 8187,
+    "Problem": 6012,
+    "Change": 2922
+  },
+  "best_model": "Linear SVM (LinearSVC)",
+  "model_file": "C:\\Users\\JOEL JERRY DANISH P\\OneDrive\\Desktop\\hackathon\\ticket-triage\\models\\model.pkl",
+  "vectorizer_file": "C:\\Users\\JOEL JERRY DANISH P\\OneDrive\\Desktop\\hackathon\\ticket-triage\\models\\vectorizer.pkl",
+  "accuracy": 0.8508,
+  "macro_f1": 0.8543,
+  "weighted_f1": 0.8476,
+  "macro_precision": 0.8617,
+  "macro_recall": 0.8497,
+  "baseline_accuracy_threshold": 0.85,
+  "model_comparison": true,
+  "all_model_results": [
+    {
+      "model": "Logistic Regression",
+      "accuracy": 0.823,
+      "macro_f1": 0.8378,
+      "weighted_f1": 0.8255
+    },
+    {
+      "model": "Linear SVM (LinearSVC)",
+      "accuracy": 0.8508,
+      "macro_f1": 0.8543,
+      "weighted_f1": 0.8476
+    },
+    {
+      "model": "Multinomial Naive Bayes",
+      "accuracy": 0.8207,
+      "macro_f1": 0.8132,
+      "weighted_f1": 0.8102
+    }
+  ],
+  "per_class_metrics": {
+    "Change": {
+      "precision": 0.9706,
+      "recall": 0.9606,
+      "f1": 0.9656,
+      "support": 584
+    },
+    "Incident": {
+      "precision": 0.797,
+      "recall": 0.8613,
+      "f1": 0.8279,
+      "support": 2293
+    },
+    "Problem": {
+      "precision": 0.6903,
+      "recall": 0.5835,
+      "f1": 0.6324,
+      "support": 1203
+    },
+    "Request": {
+      "precision": 0.9891,
+      "recall": 0.9933,
+      "f1": 0.9912,
+      "support": 1638
+    }
+  },
+  "confusion_matrix": [
+    [
+      561,
+      9,
+      2,
+      12
+    ],
+    [
+      4,
+      1975,
+      313,
+      1
+    ],
+    [
+      4,
+      492,
+      702,
+      5
+    ],
+    [
+      9,
+      2,
+      0,
+      1627
+    ]
+  ]
+}

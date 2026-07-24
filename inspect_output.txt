@@ -1,0 +1,333 @@
+=== TARGET: type ===
+  Unique: 4
+    Incident                      : 11466  (40.1%)
+    Request                       : 8187  (28.6%)
+    Problem                       : 6012  (21.0%)
+    Change                        : 2922  (10.2%)
+
+=== TARGET: queue ===
+  Unique: 10
+    Technical Support                  : 8362  (29.3%)
+    Product Support                    : 5252  (18.4%)
+    Customer Service                   : 4268  (14.9%)
+    IT Support                         : 3433  (12.0%)
+    Billing and Payments               : 2788  (9.8%)
+    Returns and Exchanges              : 1437  (5.0%)
+    Service Outages and Maintenance    : 1148  (4.0%)
+    Sales and Pre-Sales                : 918  (3.2%)
+    Human Resources                    : 576  (2.0%)
+    General Inquiry                    : 405  (1.4%)
+
+=== LANGUAGE ===
+  Unique: 2
+    en        : 16338  (57.2%)
+    de        : 12249  (42.8%)
+
+=== priority ===
+  Unique: 3
+    medium    : 11515  (40.3%)
+    high      : 11178  (39.1%)
+    low       : 5894  (20.6%)
+
+=== 5 EXAMPLE (body -> type, queue) ===
+--- Row 0 ---
+  subject: Wesentlicher Sicherheitsvorfall
+  body(120): Sehr geehrtes Support-Team,\n\nich möchte einen gravierenden Sicherheitsvorfall melden, der gegenwärtig mehrere Komponen
+  type: Incident
+  queue: Technical Support
+
+--- Row 1 ---
+  subject: Account Disruption
+  body(120): Dear Customer Support Team,\n\nI am writing to report a significant problem with the centralized account management port
+  type: Incident
+  queue: Technical Support
+
+--- Row 2 ---
+  subject: Query About Smart Home System Integration Features
+  body(120): Dear Customer Support Team,\n\nI hope this message reaches you well. I am reaching out to request detailed information a
+  type: Request
+  queue: Returns and Exchanges
+
+--- Row 3 ---
+  subject: Inquiry Regarding Invoice Details
+  body(120): Dear Customer Support Team,\n\nI hope this message finds you well. I am reaching out to request clarification about the 
+  type: Request
+  queue: Billing and Payments
+
+--- Row 4 ---
+  subject: Question About Marketing Agency Software Compatibility
+  body(120): Dear Support Team,\n\nI hope this message reaches you well. I am reaching out to ask about the compatibility of your pro
+  type: Problem
+  queue: Sales and Pre-Sales
+
+=== LEAKAGE: answer vs target ===
+  queue=Technical Support | type=Incident | answer=Vielen Dank für die Meldung des kritischen Sicherheitsvorfalls und die Bereitste
+  queue=Technical Support | type=Incident | answer=Thank you for reaching out, <name>. We are aware of the outage affecting the cen
+  queue=Returns and Exchanges | type=Request | answer=Thank you for your inquiry. Our products support integration with Amazon Alexa, 
+
+=== SPLIT COLUMN CHECK ===
+  FOUND: tag_5 -> [nan 'Tech Support' 'Feedback' 'Compatibility' 'Disruption' 'Automation'
+ 'IT' 'Support' 'Performance' 'Cloud' 'Network' 'Sales' 'Platform'
+ 'Hardware' 'Recovery' 'Maintenance' 'SaaS' 'Update' 'Issue'
+ 'Notification' 'Troubleshooting' 'Refund' 'Inspection' 'Customer Support'
+ 'Printer' 'Security' 'EMR' 'Bug' 'Integration' 'Outage' 'Firmware'
+ 'Service' 'Scalability' 'Operational Efficiency' 'Infrastructure'
+ 'Server' 'Collaboration' 'User Experience' 'Privacy' 'Strategy'
+ 'Technical Support' 'Compliance' 'Website' 'Customer Service'
+ 'Information' 'Navigation' 'Microservice' 'Problem' 'Reconciliation'
+ 'Product' 'Downtime' 'Documentation' 'Medical Devices' 'Access'
+ 'Software' 'Feature' 'Monitoring' 'Configuration' 'Availability' 'Alert'
+ 'Error' 'Team' 'Deployment' 'Marketing' 'Email' 'OS' 'Incident Response'
+ 'Android' 'Router' 'Microservices' 'Assistance' 'Leadership'
+ 'System Issue' 'Webpage' 'Account' 'Coordination' 'Discrepancy'
+ 'Software Update' 'Content' 'Subscription' 'Process' 'Telemedicine' 'SAP'
+ 'Major' 'Analytics' 'System' 'Data Protection' 'System Reboot'
+ 'Integrity' 'Digital Services' 'Access Control' 'Social Media'
+ 'Investment' 'Database' 'Data Analysis' 'Testing' 'Data' 'Breach'
+ 'Healthcare' 'Campaign Effectiveness' 'Confidentiality' 'Advertising'
+ 'Medical Records' 'Device Security' 'Agency' 'Real-time' 'Protection'
+ 'Protocols' 'Efficiency' 'Data Synchronization' 'Payment Method'
+ 'Firewall' 'Cache' 'Virtual Meeting' 'Cloud Infrastructure'
+ 'Financial Industry' 'Promotion' 'Digital Strategy' 'Encryption'
+ 'Financial Assistance' 'Office Equipment' 'Content Marketing'
+ 'Brand Expansion' 'Workflow' 'Engagement' 'Market Awareness' 'Discount'
+ 'System Check' 'Investigation' 'System Slowdown' 'Data Management'
+ 'Protocol' 'System Update' 'Analysis' 'Software Compatibility'
+ 'System Integration' 'Data Analytics' 'Solution' 'Target Audience'
+ 'Audience' 'Business Growth' 'System Error' 'Brand Growth'
+ 'Project Management' 'Audience Insights' 'Visibility' 'Growth'
+ 'Case Study' 'Safety' 'Lead' 'Cybersecurity' 'Technical Problem'
+ 'Client Support' 'Campaign' 'Correction' 'Technology' 'Effectiveness'
+ 'System Configuration' 'E-signature' 'Brand Development'
+ 'Payment Methods' 'Outcome' 'Sync' 'Model' 'Patch' 'Website Traffic'
+ 'Login' 'Brand' 'System Scan' 'Interaction' 'Medical Support' 'Oracle'
+ 'Credentials' 'System Overload' 'Business Expansion' 'Traffic Surge'
+ 'Information Security' 'Scaling' 'Optimization' 'Patient Privacy'
+ 'Phishing' 'Payment' 'Improvement' 'Pricing' 'Predictive Analytics'
+ 'Crash' 'Software Enhancement' 'Outdated Content' 'Setup' 'Vulnerability'
+ 'Best Practice' 'Digital' 'Development' 'SEO' 'Investment Analysis' 'ERP'
+ 'Planning' 'Digital Marketing' 'Backup' 'Social Media Marketing'
+ 'Malfunction' 'Visualization' 'Branding' 'Device' 'Data Breach' 'Tool'
+ 'Technical Issue' 'Inaccuracy' 'Risk' 'Connectivity' 'Market Trend'
+ 'Data Security' 'Application' 'System Security' 'Password Reset'
+ 'Software Conflict' 'Service Cache' 'Server Synchronization'
+ 'Medical Data' 'Business Development' 'Data Privacy' 'System Integrity'
+ 'Cassandra' 'Algorithm' 'Contract' 'Caching' 'Malware'
+ 'Digital Campaigns' 'Design' 'Virus' 'Hospital System' 'System Tracking'
+ 'Sensitive Data' 'Cost' 'Investment Strategy' 'Usage' 'Incident'
+ 'Innovation' 'Reliability' 'Environment' 'Patient Data' 'Kubernetes'
+ 'Onboarding' 'Transaction' 'Market Trends' 'Best Practices' 'Training'
+ 'Guidance' 'Health Data' 'Urgent' 'Data Integrity' 'Report' 'Restart'
+ 'Network Security' 'Upgrade' 'Customer Engagement' 'Digital Tools'
+ 'Data Traffic' 'Plans' 'Risk Management' 'Slowdown' 'Log Rollback'
+ 'Medical Information' 'Tools' 'H2O.ai' 'Patient Information'
+ 'Machine Learning' 'Online' 'Service Offerings' 'Log Issue' 'Permission'
+ 'Accuracy' 'Implementation' 'Resource' 'Critical Issue' 'Data Access'
+ 'Regulation' 'Marketing Team' 'Antivirus' 'Methodology'
+ 'Platform Integration' 'Business' 'Connection' 'Access Management'
+ 'Abrechnungssystem' 'Traffic' 'Third Party Tool' 'User Guidance'
+ 'Patient' 'Software Development Kit' 'System\n\n' 'Concern'
+ 'Load Balancing' 'Service Disruption' 'Hospital' 'Financial Loss'
+ 'Ticket Management' 'Memory' 'System Restart' 'Online Visibility'
+ 'Difficulty' 'Revenue' 'Data Processing' 'System Enhancement'
+ 'Unauthorized Access' 'Inquiry' 'Sensitive Information' 'Insight' 'API'
+ 'Financial Analysis' 'Financial' 'Decision Making' 'Sensitive'
+ 'Messaging' 'Synchronization' 'SystemRestart' 'Medical System'
+ 'Data Exchange' 'Review' 'Hospital Infrastructure' 'Media'
+ 'Content Issue' 'Server Overload' 'Password' 'Warning' 'Windows 10'
+ 'Digital Tool' 'Brand Awareness' 'Switch' 'Online Presence' 'Creativity'
+ 'Container' 'Data Visualization' 'Data Availability' 'Cyberattack'
+ 'Regulations' 'Threat' 'System Improvement' 'Investment Optimization'
+ 'Issue Investigation' 'HospitalInfrastructure' 'Data Reconciliation'
+ 'Fee' 'Authentication' 'Diagnostics' 'Guide' 'Communication'
+ 'Segmentation' 'Trend' 'Software Problem' 'Log' 'Productivity'
+ 'Restart Issue' 'Cyber Threat' 'Enhancement' 'Packages' 'Auditing'
+ 'Diagnostic' 'Project management' 'VPN' 'Data Inconsistency'
+ 'Outdated Security' 'Usability' 'Delay' 'Security Patch'
+ 'Content Management' 'Sensitive Resource' 'Invoice' 'Advertising Budget'
+ 'Audience Mismatch' 'Tutorial' 'System Compatibility'
+ 'System Optimization' 'Billing' 'Gateway' 'Internal Review' 'Data Source'
+ 'Digital Platform' 'Plan' 'Installation' 'User Guide' 'Critical' 'Budget'
+ 'Data Quality' 'Email Marketing' 'Misclassification' 'Decision-Making'
+ 'System Bottleneck' 'Decision' 'Management' 'Content Development'
+ 'Data Refresh' 'Resource Allocation' 'Brand Visibility' 'Resolution'
+ 'Rebooting' 'Code Deployment' 'Behavior' 'Customization'
+ 'SoftwareConflict' 'Digital Tactics' 'Outdated Protocol' 'Driver'
+ 'Plugin' 'Metrics' 'Update Issue' 'System Cache' 'Decision Support'
+ 'Intrusion Detection' 'Market Development' 'Data Integration' 'Operation'
+ 'Organization' 'System Überlastung' 'Process Optimization'
+ 'Hospital Systems' 'Website Optimization' 'Service Package' 'Conflict'
+ 'Financial Services' 'Digital Channel' 'Investment Strategies'
+ 'Service Capacity' 'Predictive Modeling' 'Access Log' 'Online Growth'
+ 'Prevention' 'Business Strategy' 'Business Operation' 'External Service'
+ 'Market' 'AccessManagement' 'Glitch' 'High Priority' 'Finance'
+ 'Expansion' 'Influencer' 'System Diagnostics' 'Security Solution'
+ 'DataRobot' 'Speed' 'Data Retrieval' 'Safety Measures' 'Data Accuracy'
+ 'Digital Application' 'Process Improvement' 'Software Integration'
+ 'Cache Clearing' 'Digital Campaign' 'Campaigns' 'Cost Details' 'Audit'
+ 'Root Cause' 'Customer Interaction' 'Netzwerk' 'Insights' 'Targeting'
+ 'Research' 'Medical' 'Data Issue' 'Browser' 'Strategy Improvement'
+ 'Client Engagement' 'Service Optimization' 'System Vulnerability'
+ 'PostgreSQL' 'Query' 'Quality' 'Inconsistency' 'Reboot' 'Procedure'
+ 'Dependencies' 'Healthcare Data' 'Dashboard' 'Advice' 'Integration Issue'
+ 'User Friendly' 'Validation Error' 'Capacity' 'Infrastruktur'
+ 'Initiative' 'Customer Loyalty' 'Content Growth' 'Financial Decision'
+ 'System Analysis' 'Exposure' 'Resources' 'Customer Feedback'
+ 'Content Creation' 'Campaign Management' 'MedicalData' 'HospitalSystem'
+ 'HIPAA' 'Toolset' 'Benefit' 'Assessment' 'Success Story' 'User Support'
+ 'Outreach' 'Datenanalyse' 'Software Error' 'Synchronisation' 'Outdated'
+ 'Cost Breakdown' 'Validation' 'Data Pipeline' 'Reinstallation'
+ 'DataProtection' 'Audience Segmentation' 'Partnership' 'Certification'
+ 'System Connector' 'Campaign Performance' 'Security Measures'
+ 'Rebranding' 'SystemAccess' 'Debugging' 'Digital Footprint'
+ 'Security Policy' 'Reach' 'Technical Assistance' 'Market Analysis'
+ 'Instruction' 'Impact' 'Stability' 'Python' 'Financial Reporting'
+ 'Audience Reach' 'Online Marketing' 'Smart Thermostat'
+ 'Integration Challenges' 'Fix' 'Application Issue' 'Threat Evaluation'
+ 'System Driver' 'Financial Institution' 'Product Improvement' 'Ubuntu'
+ 'Connection Problem' 'Data Storage' 'Business Operations' 'Specification'
+ 'System Problem' 'Test Version' 'Knowledge Base' 'Customer Experience'
+ 'Policy' 'Audience Engagement' 'Software Fehler' 'Issue investigation'
+ 'User Manual' 'Analytics Platform' 'Security Improvement'
+ 'Data Discrepancy' 'Competitiveness' 'Payment Gateway' 'Google Keep'
+ 'Financial Risk' 'Return' 'Data inconsistency' 'Technical Tools'
+ 'Authorization' 'Software incompatibility' 'Digital Growth'
+ 'Hospital Environment' 'Budget Reallocation' 'Security Alert'
+ 'Cloud Service' 'Instability' 'Compromise' 'Webhook' 'Adjustment' 'AR'
+ 'DigitalMarketing' 'Server overload' 'Creative' 'Security Protocols'
+ 'Digital Presence' 'Evaluation' 'ProductPromotion' 'Industry Trend'
+ 'Request' 'Unintentional' 'Caching Issue' 'Software Vulnerability'
+ 'Technical Difficulty' 'ProjectManagement' 'Credential Security'
+ 'Cost Analysis' 'Data Validation' 'Brand Engagement' 'DataPipeline'
+ 'Audience Targeting' 'Mitigation' 'Misconfiguration' 'Safety Patch'
+ 'Exchange' 'Project' 'Employee' 'Tech' 'Warranty' 'Marketing Strategy'
+ 'Replacement']
+  FOUND: tag_6 -> [nan 'Outage' 'Organization' 'Tech Support' 'IT' 'Microservice'
+ 'Performance' 'Service' 'Document' 'Technical Support' 'Data Privacy'
+ 'Support' 'Software' 'Disruption' 'Refund' 'Customer Support' 'System'
+ 'Stability' 'Maintenance' 'Troubleshooting' 'Process' 'Data Pipeline'
+ 'Safety' 'Telemedicine' 'Assistance' 'Installation' 'SaaS' 'Technology'
+ 'Documentation' 'Device' 'Automation' 'Product' 'Integration' 'Recovery'
+ 'Telehealth' 'Platform' 'Microservices' 'Investment' 'System Update'
+ 'SOC' 'Firmware' 'Hardware' 'Infrastructure' 'Outlook Account' 'Network'
+ 'Connection' 'Cloud' 'Data Analysis' 'Error' 'Access' 'Cloud Native'
+ 'Healthcare' 'Account' 'Monitoring' 'Procurement' 'Driver'
+ 'Visual Design' 'Efficiency' 'Input Issue' 'Creativity' 'Security'
+ 'Analytics' 'Database' 'Advertising' 'Assessment' 'Encryption'
+ 'Availability' 'Investigation' 'Scalability' 'Backup' 'User Experience'
+ 'Engagement' 'Deployment' 'Decision Making' 'Feedback'
+ 'Investment Optimization' 'Update' 'Medical Data' 'Audience' 'Campaign'
+ 'Compliance' 'Optimization' 'Data Integration' 'Patient Confidentiality'
+ 'Unauthorized Access' 'Customization' 'Outdated' 'Evaluation' 'Workflow'
+ 'System Cache' 'Pricing' 'Budget' 'Confidentiality' 'Inaccuracy'
+ 'Patient Data' 'Switch' 'Target Audience' 'Bug' 'Project Management'
+ 'Diagnosis' 'System Security' 'Access Control' 'Social Media' 'Issue'
+ 'Productivity' 'Customer Service' 'Cost Plan' 'Firewall' 'System Issue'
+ 'Privacy' 'Invoice' 'Data Processing' 'Case Study' 'Disappointment'
+ 'Content' 'Branding' 'Online Visibility' 'Strategy' 'Intrusion' 'Cache'
+ 'API' 'Brand' 'Guidance' 'Online Engagement' 'Load Balancing' 'Discount'
+ 'Purchase' 'Visibility' 'Feature' 'Business' 'Business Improvement'
+ 'Enhancement' 'Brand Development' 'Digital Marketing' 'Toolset' 'Digital'
+ 'Platforms' 'Android' 'Reboot' 'Analysis' 'Information Security'
+ 'System restart' 'Incident' 'Microsoft' 'Effectiveness' 'Synchronization'
+ 'Digital Strategy' 'Upgrade' 'Subversion' 'Rebooting' 'Promotion' 'Data'
+ 'Cache Issue' 'System Vulnerability' 'Best Practices' 'Insights'
+ 'Risk Assessment' 'Kernel' 'Connectivity' 'Configuration'
+ 'Network Security' 'Hospital System' 'Delay' 'Brand Growth' 'Conflict'
+ 'Algorithm' 'Compatibility' 'Implementation' 'Device Integration'
+ 'Traffic' 'Functionality' 'Content Creation' 'Brand Expansion'
+ 'Integrity' 'Accuracy' 'System Synchronization' 'Decision'
+ 'Software Integration' 'Influencer' 'Service Packages' 'Digital Campaign'
+ 'Software Update' 'Training' 'Growth' 'Payment Methods' 'Reliability'
+ 'PyTorch' 'Vendor Support' 'Data Analytics' 'Limitation'
+ 'Data Protection' 'Sensitive Data' 'Patient Care'
+ 'Technical Specification' 'Conversion' 'Data Integrity' 'Marketing'
+ 'Gateway' 'Financial Support' 'Resources' 'Sensitive'
+ 'Software Compatibility' 'Diagnostics' 'Security Best Practices'
+ 'Content Marketing' 'System Breach' 'Innovation' 'Financial' 'Protocol'
+ 'Lead' 'Data Availability' 'Information Management' 'Reinstallation'
+ 'Cost' 'Regulation' 'Authentication' 'Load' 'Improvement' 'Review'
+ 'Customer Engagement' 'Medical Systems' 'System Integrity'
+ 'Password Reset' 'System Check' 'Management' 'Trend'
+ 'Sensitive Information' 'Ubuntu' 'Product Integration' 'Competition'
+ 'Keras' 'Tutorial' 'Business Expansion' 'Virus' 'Product Promotion'
+ 'Plugin' 'Prompt Response' 'Support Request' 'System Integration'
+ 'System Error' 'System Scan' 'Pre-sale' 'Root Cause' 'Breach'
+ 'Cyber Threat' 'Inquiry' 'Fehler' 'Reputational' 'Loyalty'
+ 'Medical Documentation' 'Online Presence' 'Patient Safety'
+ 'Potential Consequence' 'System Restart' 'Expansion' 'Application'
+ 'Business Development' 'Risk Management' 'Synchronization Error'
+ 'Creative' 'Linux' 'Campaigns' 'Server' 'Recommendation'
+ 'Threat Protection' 'System Slowdown' 'System Protection' 'Protection'
+ 'Business Growth' 'E-signature' 'Outdated Security' 'Planning'
+ 'Patient Information' 'Campaign Management' 'GCP' 'Audit' 'Collaboration'
+ 'Information' 'Reprocessing' 'Brand Messaging' 'Patch'
+ 'Business Information' 'Software Conflict' 'Misalignment' 'Communication'
+ 'Online Advertising' 'Resolution' 'Data Validation' 'Threat Prevention'
+ 'Technology Support' 'Microsoft Dynamics' 'Hospital' 'Auditing'
+ 'Segmentation' 'Predictive' 'Certification' 'Agency' 'Online Interaction'
+ 'Approach' 'Market Trends' 'Promotional' 'HIPAA' 'Targeting'
+ 'Exploitation' 'Threat' 'Market Trend' 'Hospital IT' 'Insight' 'Trial'
+ 'Password' 'Code' 'SensitiveData' 'Healthcare IT' 'Long-term'
+ 'Digital Transformation' 'Sensitivity' 'Prediction' 'Security Update'
+ 'System Software Update' 'Analysis Capability' 'Messaging'
+ 'System Requirements' 'Brand Awareness' 'Tool' 'System Compatibility'
+ 'Guide' 'Security Practice' 'Third-party' 'Critical' 'Visuals' 'Team'
+ 'Service Disruption' 'System Instability' 'Data Breach' 'Best Practice'
+ 'Discounts' 'Industry Standard' 'Memory' 'Market' 'Log Analysis'
+ 'Reassessment' 'System Reboot' 'Risk' 'Technique' 'Networking'
+ 'Vulnerability' 'Synchronisation' 'ERP' 'Digital Tools' 'Problem-solving'
+ 'Influencers' 'Online Payment' 'Urgent' 'Tips' 'Customer Experience'
+ 'Visualization' 'Cost Estimation' 'Analysis Method' 'Endpoint Security'
+ 'Query' 'App Issue' 'Business Process' 'Cost Breakdown'
+ 'Incident Response' 'Access Management' 'Sales' 'Consultation' 'Fix'
+ 'Customer' 'Issue Resolution' 'User Impact' 'Plan' 'Gaming PCs'
+ 'System Capacity' 'Outcome' 'Software Issue' 'Revenue' 'Data Traffic'
+ 'Problem' 'Credential' 'Customer Interaction' 'System stability'
+ 'Backend' 'SEO' 'Security Solutions' 'Access Difficulty' 'Dependency'
+ 'Healthcare Security' 'Search Engine' 'Conversion Rate' 'Access Issue'
+ 'Investment Strategy' 'Service Options' 'Validation' 'Development'
+ 'Standard' 'Regulations' 'Neustart' 'Financial Organization' 'User'
+ 'Software Tools' 'Software Bug' 'Business Planning' 'Inconsistency'
+ 'Data Source' 'System Conflict' 'Kubernetes' 'Tools' 'Unresolved'
+ 'Financial Loss' 'Correction' 'Portfolio' 'Reconciliation'
+ 'Healthcare Data' 'Security Incident' 'Payment Gateway'
+ 'Investment Analysis' 'Usage' 'System Overload' 'Connection Problem'
+ 'Challenge' 'Expertise' 'Real-Time' 'Payment' 'Antivirus' 'Restart'
+ 'Screen Sharing' 'Integration Problem' 'Awareness' 'Marketing Agency'
+ 'Market Expansion' 'Outdated Software' 'Malfunction' 'Resource'
+ 'Critical Issue' 'Containment' 'Market Growth' 'Fee'
+ 'Security Enhancement' 'Media Platforms' 'Recommendations'
+ 'Customer Guidance' 'Halted' 'Brand Management' 'Email Campaign'
+ 'Security Measures' 'Brand Visibility' 'Report' 'Report Generation'
+ 'Transaction' 'Alert' 'Finance' 'Payment Options' 'SAP ERP'
+ 'Threat Detection' 'Medical' 'Urgent Action' 'Real-time Data'
+ 'Financial Optimization' 'Response' 'Safety Measures' 'Service Restart'
+ 'Audience Targeting' 'Digital Presence' 'Webhook' 'Change'
+ 'Content Revision' 'DataLoss' 'Operational' 'Modeling' 'Security Policy'
+ 'Policy' 'Outreach' 'Data Security' 'Online Marketing' 'Phishing'
+ 'SoftwareUpdate' 'Plattform' 'Login' 'Service Issue'
+ 'Campaign Effectiveness' 'Suspicious Activity' 'System Upgrade'
+ 'Capacity' 'Cancellation' 'Data Visualization' 'Skill Development'
+ 'System Analysis' 'Advice' 'Audience Segmentation' 'Debugging'
+ 'Knowledge Base' 'Model' 'Setup' 'Customer Satisfaction' 'Specification'
+ 'System Stability' 'Workaround' 'Credential Reset' 'Software Upgrade'
+ 'Data Synchronization' 'Adjustment' 'Mitigation' 'Free Trial'
+ 'Content Strategy' 'Prevention' 'Cost Management'
+ 'Infrastructure Management' 'Bulk Purchase' 'User Guidance'
+ 'Digital Tool' 'Machine Learning' 'Gateway Issue' 'Internal Review'
+ 'Medical Records' 'Tactics' 'Connection Issue' 'Critical Incident'
+ 'Billing' 'Technical' 'Industry Standards' 'Email Marketing'
+ 'Technical Assistance' 'Large Dataset' 'Server Synchronization'
+ 'Research' 'Real-time' 'Speed' 'Target' 'Transaction Log'
+ 'Invoice Generation' 'Service Connection' 'Content Review' 'Re-training'
+ 'Decision-making' 'Log' 'Trends' 'Memory Leak' 'Creative Content'
+ 'PatientData' 'SAP' 'Audience Segment' 'Emergency' 'Interference'
+ 'System Alert' 'Customer Value' 'Financial Services'
+ 'Software malfunction' 'Brand Campaigns' 'Results' 'Security Breach'
+ 'Testing' 'SoftwareError' 'Goals' 'Guidelines' 'Partitioning'
+ 'Customer Targeting' 'Website' 'DataProcessing' 'Data Issue'
+ 'Project Planning' 'RapidMiner' 'SystemSecurity' 'Browser'
+ 'Service Improvement' 'PlatformUpdate' 'Cybersecurity' 'Urgency'
+ 'Risk Exposure' 'Ad Segment' 'Digital Initiatives'
+ 'Financial Institution' 'Notification' 'Employee' 'Project' 'HR']
